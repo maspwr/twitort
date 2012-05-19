@@ -1,6 +1,24 @@
 # Twitort
 
-TODO: Write a gem description
+twitort - Twitter Sorter
+
+Sorts and prints the words in a given twitter user's last 1000 tweets
+sorted by frequency of use.
+
+For example, if jack had tweeted:
+"hello world"
+"hello everyone, and world"
+"hi world"
+
+The result could be:
+world
+hello
+and
+hi
+everyone
+
+Twitter Docs:
+https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
 
 ## Installation
 
