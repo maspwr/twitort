@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "twitort"
   gem.require_paths = ["lib"]
   gem.version       = Twitort::VERSION
+
+  gem.add_development_dependency 'rspec', '~> 2.10.0'
 end
