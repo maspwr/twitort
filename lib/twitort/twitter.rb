@@ -4,23 +4,32 @@ require 'json'
 module Twitort
   module Twitter
     URL             = "https://api.twitter.com/1/statuses/user_timeline.json"
-    DEFAULT_OPTIONS = {:count => 200}
-
+    DEFAULT_OPTIONS = {:params    => {:count => 200},
+                       :max_count => 1000}
     
     def self.get_tweets(username, p = DEFAULT_OPTIONS)
-      max_count  = 1000
-      max_id     = nil
-      response   = []
-      params     = p.merge(:screen_name => username)
+      max_count  = p[:max_count]
+      max_id     = last_max_id = nil
+      tweets     = []
+      params     = p[:params].merge(:screen_name => username)
 
-      (max_count / p[:count]).ceil.times do
+      while max_count > 0
         params    = params.merge(:max_id => max_id) if max_id
         url       = format_url(params)
-        response += JSON.parse(open(url).readlines[0])
+        response  = JSON.parse(open(url).readlines[0])
         max_id    = get_max_id(response)
+
+        # If we aren't getting any new tweets, break out of the loop.
+        break if max_id == last_max_id
+
+        max_count   -= response.size
+        tweets      += response
+        last_max_id  = max_id
       end
 
-      response
+      # Limit the results to p[:max_count] as our last GET might have
+      # pulled more than we wanted.
+      tweets[0..(p[:max_count]-1)]
     end
 
     private

@@ -25,4 +25,11 @@ describe 'Twitort' do
       Twitort::Sorter.sort_words(words).should eq sorted_words
     end
   end
+
+  describe 'Twitter' do
+    it 'gets up to 1000 tweets' do
+      tweets = Twitort::Twitter.get_tweets('twitterapi')
+      tweets.size.should eq 1000
+    end
+  end
 end
