@@ -6,7 +6,7 @@ require "twitort/sorter"
 
 module Twitort
   class TwitortCommand < Thor
-    desc "sort", "Sorts tweets"
+    desc "sort USERNAME", "Sorts tweets for USERNAME"
     def sort(username)
       Twitort::Sorter.display_sorted Twitort::Twitter.get_tweets(username)
     end
