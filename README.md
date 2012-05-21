@@ -22,21 +22,16 @@ https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Install it yourself as:
 
-    gem 'twitort'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install twitort
+    $ rake install
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply call 'sort' with the username of the Twitter user you are
+interested in.  The sorted words will be printed to stdout.
+
+    $ twitort sort USERNAME
 
 ## Contributing
 
