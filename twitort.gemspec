@@ -16,4 +16,6 @@ Gem::Specification.new do |gem|
   gem.version       = Twitort::VERSION
 
   gem.add_development_dependency 'rspec', '~> 2.10.0'
+
+  gem.add_dependency 'thor'
 end
