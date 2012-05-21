@@ -4,8 +4,8 @@ require File.expand_path('../lib/twitort/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Mark Aaron Shirley"]
   gem.email         = ["markashirley@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Sort some tweet words.}
+  gem.summary       = %q{Sort some tweet words.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
